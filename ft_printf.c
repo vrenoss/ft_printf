@@ -6,12 +6,11 @@
 /*   By: rpaganon <rpaganon@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/14 01:21:47 by rpaganon          #+#    #+#             */
-/*   Updated: 2026/11/14 01:59:36 by rpaganon         ###   ########lyon.fr   */
+/*   Updated: 2026/11/17 16:11:15 by rpaganon         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include <stdio.h>
 #include "ft_printf.h"
 
 static int	ft_printf_arg(char type, va_list *ap)
@@ -58,6 +57,8 @@ int	ft_printf(const char *s, ...)
 	int		count;
 	va_list	ap;
 
+	if (!s)
+		return (-1);
 	va_start(ap, s);
 	i = 0;
 	count = 0;
@@ -76,10 +77,11 @@ int	ft_printf(const char *s, ...)
 	return (count);
 }
 /*
+#include <stdio.h>
 int	main(void)
 {
 	int	x;
-
+	
 	x = 18;
 	ft_printf("%s\n", "voiture");
 	printf("%s\n", "voiture");
